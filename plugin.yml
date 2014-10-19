@@ -1,0 +1,10 @@
+name: GameAPI
+version: 1.0
+main: five.game.main.GameAPI
+author: Phase(Phasesaber)
+description: An API above all APIs.
+commands:
+  hub:
+    description: Teleports you back to the hub.
+  game:
+    description: Games. :P
