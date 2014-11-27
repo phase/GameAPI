@@ -1,6 +1,6 @@
 name: GameAPI
 version: 1.0
-main: five.game.main.GameAPI
+main: xyz._5th.gameapi.main.GameAPI
 author: Phase(Phasesaber)
 description: An API above all APIs.
 commands:

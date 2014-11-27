@@ -40,8 +40,8 @@ public class ChatCommand implements Listener{
 				Entity n = p.getWorld().spawnEntity(p.getLocation(), type);
 				if(n instanceof LivingEntity){
 					LivingEntity en = (LivingEntity) n;
-					en.setCustomNameVisible(true);
 					en.setCustomName(GameAPI.getRandomColor()+"§l"+args[2]);
+					en.setCustomNameVisible(true);
 					en.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100000, 100000));
 					FreezeTask.addMob(en, p.getLocation());
 				}
