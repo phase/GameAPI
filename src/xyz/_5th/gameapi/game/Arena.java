@@ -187,7 +187,6 @@ public class Arena {
 			teleportPlayers();
 		}
 	}
-	
 
 	/**
 	 * Stops the game.
@@ -315,12 +314,12 @@ public class Arena {
 			p.sendMessage(" ");
 			p.sendMessage("§aGame§3:§c§l" + getName());
 			p.sendMessage(" ");
-			if (winner.getPlayers().size() == 1)
+			if (winner.getPlayers().size() == 1 && GameAPI.getPlayerName(winner.getPlayers().get(0)) != null)
 				p.sendMessage(winner.getColor() + "§lThe winner is "
-						+ winner.getName() + "!");
+						+ GameAPI.getPlayerName(winner.getPlayers().get(0)) + "!");
 			else
 				p.sendMessage(winner.getColor() + "§lThe winner is "
-						+ winner.getPlayers().get(0) + "!");
+						+ winner.getName() + "!");
 			p.sendMessage(" ");
 			p.sendMessage("§eMap: §3§l" + currentMap.getName() + " §eby§5§l "
 					+ currentMap.getCreator());
@@ -449,6 +448,10 @@ public class Arena {
 		this.gameRunnable = r;
 	}
 	
+	/**
+	 * Gets game that this Arena is a part of
+	 * @return Arena's Game
+	 */
 	public Game getGame(){
 		return Game.getGame(this);
 	}

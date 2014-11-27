@@ -13,6 +13,7 @@ import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -122,11 +123,36 @@ public class GameAPI extends JavaPlugin {
 		
 	}
 	
+	/**
+	 * Get Join Location
+	 * @return Join Location
+	 */
 	public static Location getJoinLocation(){
 		return joinLocation;
 	}
 	
+	/**
+	 * Get Spawn Location
+	 * @return Spawn Location
+	 */
 	public static Location getSpawnLocation(){
 		return spawnLocation;
 	}
+	
+	/**
+	 * Gets a Player Name from a UUID, only does 
+	 * @param uuid
+	 * @return
+	 */
+	@SuppressWarnings("deprecation")
+	public static String getPlayerName(UUID uuid) {
+		for(Player p : Bukkit.getOnlinePlayers()){
+			if(p.getUniqueId().equals(uuid)){
+				return p.getName();
+			}
+		}
+		return null;
+	}
+	
+	
 }
