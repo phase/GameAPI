@@ -46,11 +46,13 @@ public class MessageManager {
 		IChatBaseComponent serializedTitle = ChatSerializer.a(TextConverter.convert(title));
 		IChatBaseComponent serializedSubTitle = ChatSerializer.a(TextConverter.convert(subtitle));
 
-		craftPlayer.getHandle().playerConnection.sendPacket(new ProtocolInjector.PacketTitle(
+                PlayerConnection connection = craftPlayer.getHandle().playerConnection;
+
+		connection.sendPacket(new ProtocolInjector.PacketTitle(
 				ProtocolInjector.PacketTitle.Action.TIMES, fadeIn, stay, fadeOut));
-		craftPlayer.getHandle().playerConnection.sendPacket(new ProtocolInjector.PacketTitle(
+		connection.sendPacket(new ProtocolInjector.PacketTitle(
 				ProtocolInjector.PacketTitle.Action.TITLE, serializedTitle));
-		craftPlayer.getHandle().playerConnection.sendPacket(new ProtocolInjector.PacketTitle(
+		connection.sendPacket(new ProtocolInjector.PacketTitle(
 				ProtocolInjector.PacketTitle.Action.SUBTITLE, serializedSubTitle));
 	}
 
@@ -65,9 +67,6 @@ public class MessageManager {
 		CraftPlayer craftPlayer = (CraftPlayer) player;
 		if(!GameAPI.is1_8(player)) return;
 		PlayerConnection connection = craftPlayer.getHandle().playerConnection;
-
-		header = header.replaceAll("%player%", player.getDisplayName());
-		footer = footer.replaceAll("%player%", player.getDisplayName());
 
 		IChatBaseComponent header2 = ChatSerializer.a(new StringBuilder().append("{'text': '")
 				.append(header).append("'}").toString());
