@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -298,6 +299,7 @@ public class Arena {
 					+ currentMap.getCreator());
 			p.sendMessage(" ");
 			p.sendMessage("§5§l------------------");
+			MessageManager.sendTitle(p, 1, 5, 1, GameAPI.getRandomColor() + getGame().getName(), ChatColor.GREEN + "Get Ready");
 		}
 	}
 
@@ -314,12 +316,16 @@ public class Arena {
 			p.sendMessage(" ");
 			p.sendMessage("§aGame§3:§c§l" + getName());
 			p.sendMessage(" ");
-			if (winner.getPlayers().size() == 1 && GameAPI.getPlayerName(winner.getPlayers().get(0)) != null)
+			if (winner.getPlayers().size() == 1 && GameAPI.getPlayerName(winner.getPlayers().get(0)) != null){
 				p.sendMessage(winner.getColor() + "§lThe winner is "
 						+ GameAPI.getPlayerName(winner.getPlayers().get(0)) + "!");
-			else
+				MessageManager.sendTitle(p, 1, 5, 1, winner.getColor() + Bukkit.getPlayer(winner.getPlayers().get(0)).getName(), winner.getColor() + "won the game!");
+			}
+			else{
 				p.sendMessage(winner.getColor() + "§lThe winner is "
 						+ winner.getName() + "!");
+				MessageManager.sendTitle(p, 1, 5, 1, winner.getColor() + winner.getName(), winner.getColor() + "won the game!");
+			}
 			p.sendMessage(" ");
 			p.sendMessage("§eMap: §3§l" + currentMap.getName() + " §eby§5§l "
 					+ currentMap.getCreator());

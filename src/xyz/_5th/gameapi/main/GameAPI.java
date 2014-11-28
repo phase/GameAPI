@@ -12,6 +12,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.craftbukkit.v1_7_R4.entity.CraftPlayer;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -120,7 +121,6 @@ public class GameAPI extends JavaPlugin {
 			case 10:return ChatColor.GRAY;
 			default:return ChatColor.GREEN;
 		}
-		
 	}
 	
 	/**
@@ -144,15 +144,11 @@ public class GameAPI extends JavaPlugin {
 	 * @param uuid
 	 * @return
 	 */
-	@SuppressWarnings("deprecation")
 	public static String getPlayerName(UUID uuid) {
-		for(Player p : Bukkit.getOnlinePlayers()){
-			if(p.getUniqueId().equals(uuid)){
-				return p.getName();
-			}
-		}
-		return null;
+		return Bukkit.getPlayer(uuid).getName();
 	}
 	
-	
+	public static boolean is1_8(Player p){
+		return ((CraftPlayer) p).getHandle().playerConnection.networkManager.getVersion() >= 47;
+	}
 }
