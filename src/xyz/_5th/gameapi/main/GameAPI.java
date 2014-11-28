@@ -28,6 +28,7 @@ import xyz._5th.gameapi.listener.HubCommand;
 import xyz._5th.gameapi.listener.LeaveListener;
 import xyz._5th.gameapi.listener.RespawnListener;
 import xyz._5th.gameapi.lobby.LobbyManager;
+import xyz._5th.test.PaintBall.PaintBall;
 
 public class GameAPI extends JavaPlugin {
 
@@ -56,6 +57,9 @@ public class GameAPI extends JavaPlugin {
 		f = new File("GameAPI/game/main/mobs.yml");
 		config = YamlConfiguration.loadConfiguration(f);
 		getMobs();
+		
+		//Test Games
+		new PaintBall();
 	}
 
 	/**

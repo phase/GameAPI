@@ -27,6 +27,7 @@ public class ChatCommand implements Listener{
 		String c = e.getMessage().split(" ")[0];
 		String[] args = e.getMessage().split(" ");
 		if(c.startsWith("/game")){
+			e.setCancelled(true);
 			if(args.length != 3){
 				m(p, "/game <type> <name>");
 				return;

@@ -175,5 +175,8 @@ public class Game {
 	public int getTime() {
 		return time;
 	}
-
+	
+	public static boolean gameEquals(Player p, String name){
+		return isInGame(p) && gameExist(name) && getGame(p).getName().equals(name);
+	}
 }
