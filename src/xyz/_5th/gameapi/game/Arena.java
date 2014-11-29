@@ -299,7 +299,7 @@ public class Arena {
 					+ currentMap.getCreator());
 			p.sendMessage(" ");
 			p.sendMessage("§5§l------------------");
-			MessageManager.sendTitle(p, 1, 5, 1, GameAPI.getRandomColor() + getGame().getName(), ChatColor.GREEN + "Get Ready");
+			MessageManager.sendTitle(p, 1 * 20, 5 * 20, 1 * 20, GameAPI.getRandomColor() + getGame().getName(), ChatColor.GREEN + "Get Ready");
 		}
 	}
 
@@ -319,12 +319,12 @@ public class Arena {
 			if (winner.getPlayers().size() == 1 && GameAPI.getPlayerName(winner.getPlayers().get(0)) != null){
 				p.sendMessage(winner.getColor() + "§lThe winner is "
 						+ GameAPI.getPlayerName(winner.getPlayers().get(0)) + "!");
-				MessageManager.sendTitle(p, 1, 5, 1, winner.getColor() + Bukkit.getPlayer(winner.getPlayers().get(0)).getName(), winner.getColor() + "won the game!");
+				MessageManager.sendTitle(p, 1 * 20, 5 * 20, 1 * 20, winner.getColor() + Bukkit.getPlayer(winner.getPlayers().get(0)).getName(), winner.getColor() + "won the game!");
 			}
 			else{
 				p.sendMessage(winner.getColor() + "§lThe winner is "
 						+ winner.getName() + "!");
-				MessageManager.sendTitle(p, 1, 5, 1, winner.getColor() + winner.getName(), winner.getColor() + "won the game!");
+				MessageManager.sendTitle(p, 1 * 20, 5 * 20, 1 * 20, winner.getColor() + winner.getName(), winner.getColor() + "won the game!");
 			}
 			p.sendMessage(" ");
 			p.sendMessage("§eMap: §3§l" + currentMap.getName() + " §eby§5§l "

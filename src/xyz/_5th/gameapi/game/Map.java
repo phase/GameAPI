@@ -79,7 +79,7 @@ public class Map {
 	
 	/**
 	 * <b>MAY BE NULL! USE getWorldName()!</b>
-	 * @return The World instace, may be <b>null</b>
+	 * @return The World instance, may be <b>null</b>
 	 */
 	public World getWorld(){
 		return Bukkit.getWorld(world);

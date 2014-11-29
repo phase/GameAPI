@@ -22,13 +22,14 @@ public class PaintBall {
 		ArrayList<Team> ts = new ArrayList<Team>();
 		ArrayList<Map> maps = new ArrayList<Map>();
 		Team p = Team.PLAYERS(-1);
+		ts.add(p);
 		lis.add(new PaintListener());
 		HashMap<Team, Location> spawns = new HashMap<Team, Location>();
 		spawns.put(p, new Location(Bukkit.getWorld("testmap"), 0, 64, 0));
 		maps.add(new Map("TestMap", "testmap", "Mojang", spawns));
 		as.add(new Arena(1, "PaintBall", "Shoot your paintballs at everyone!", pre, ts, maps, new GameRunnable(){
 			public void start(){}public void stop(){}public void win(Team team){}}));
-		Game game = new Game("PaintBall", "Shoot your paintballs at everyone!", pre, as, lis);
+		new Game("PaintBall", "Shoot your paintballs at everyone!", pre, as, lis);
 	}
 	
 }

@@ -35,7 +35,7 @@ public class GameChooser implements Listener {
 		Player p = e.getPlayer();
 		Entity n = e.getRightClicked();
 		if(!Game.isInGame(p)){
-			if(n.getWorld().equals(Bukkit.getWorlds().get(0))){
+			if(n.getWorld().getName().equalsIgnoreCase("world")){
 				if(n instanceof LivingEntity){
 					LivingEntity en = (LivingEntity) n;
 					String game = en.getCustomName();
@@ -60,9 +60,8 @@ public class GameChooser implements Listener {
 			Player p = (Player) e.getWhoClicked();
 			if(Game.isInGame(p)) return;
 			if(Game.gameExist(ChatColor.stripColor(e.getInventory().getName()))){
-				if(p.getWorld().equals(Bukkit.getWorlds().get(0))){
+				if(p.getWorld().getName().equalsIgnoreCase("world")){
 					e.setCancelled(true);
-					
 						int s = Integer.parseInt(ChatColor.stripColor(e.getCurrentItem().getItemMeta().getDisplayName().split(" ")[1]));
 						Arena a = Arena.getArena(s);
 						if(a.getState() == ArenaState.PRE_GAME)
