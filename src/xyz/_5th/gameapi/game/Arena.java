@@ -20,8 +20,8 @@ public class Arena {
 	public static ArrayList<Arena> ArenaList = new ArrayList<Arena>();
 	ArrayList<UUID> Players;
 	ArrayList<Team> Teams;
-
 	ArrayList<Map> Maps;
+	
 	Map currentMap;
 	Team winner;
 	ArenaState gameState;
@@ -92,11 +92,9 @@ public class Arena {
 	 */
 	private void giveRandomTeam(Player p) {
 		Team t = null;
-		for (Team te : Teams) {
-			if (t == null || te.getPlayers().size() < t.getPlayers().size()) {
+		for (Team te : Teams)
+			if (t == null || te.getPlayers().size() < t.getPlayers().size())
 				t = te;
-			}
-		}
 		t.addPlayer(p);
 	}
 
@@ -221,6 +219,7 @@ public class Arena {
 
 	/**
 	 * Terrible way to do the pre-game countdown, will change soon.
+	 * omg liek 10 months later and it's still here, someone get rid of it...
 	 */
 	public void countDown() {
 		broadcastMessage(Prefix.INFO(), "Game starting in 1 minute!");
@@ -269,16 +268,13 @@ public class Arena {
 	}
 
 	/**
-	 * @return a random map that is not the current map & is not being played by
-	 *         another map, allows for different arenas to use the same map.
+	 * @return A random map that is not the current map & is not being played by
+	 *         another game.
 	 */
 	private Map getRandomMap() {
 		Random r = new Random();
 		Map m = Maps.get(r.nextInt(Maps.size()));
-		for(Arena a : Game.getGame(this).getArenas())
-			if(a.getCurrentMap() == m && a != this)
-				return getRandomMap();
-		if (m == currentMap && Maps.size() != 1)
+		if (m.isLoaded() || (m == currentMap && Maps.size() != 1))
 			return getRandomMap();
 		return m;
 	}

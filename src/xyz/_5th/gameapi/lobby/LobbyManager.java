@@ -87,7 +87,7 @@ public class LobbyManager implements Listener {
 		}
 		p.openInventory(i);
 	}
-
+	
 	private static byte getData(int p){
 		if(p == 0)
 			return 10;

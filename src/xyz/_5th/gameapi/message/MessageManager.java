@@ -38,22 +38,22 @@ public class MessageManager {
 	 * @param subtitle
 	 */
 	public static void sendTitle(Player player, int fadeIn, int stay, int fadeOut, String title, String subtitle) {
-		CraftPlayer craftPlayer = (CraftPlayer) player;
-
 		if (!GameAPI.is1_8(player))
 			return;
+
+		CraftPlayer craftPlayer = (CraftPlayer) player;
 
 		IChatBaseComponent serializedTitle = ChatSerializer.a(TextConverter.convert(title));
 		IChatBaseComponent serializedSubTitle = ChatSerializer.a(TextConverter.convert(subtitle));
 
-                PlayerConnection connection = craftPlayer.getHandle().playerConnection;
+		PlayerConnection connection = craftPlayer.getHandle().playerConnection;
 
-		connection.sendPacket(new ProtocolInjector.PacketTitle(
-				ProtocolInjector.PacketTitle.Action.TIMES, fadeIn, stay, fadeOut));
-		connection.sendPacket(new ProtocolInjector.PacketTitle(
-				ProtocolInjector.PacketTitle.Action.TITLE, serializedTitle));
-		connection.sendPacket(new ProtocolInjector.PacketTitle(
-				ProtocolInjector.PacketTitle.Action.SUBTITLE, serializedSubTitle));
+		connection.sendPacket(new ProtocolInjector.PacketTitle(ProtocolInjector.PacketTitle.Action.TIMES, fadeIn, stay,
+				fadeOut));
+		connection.sendPacket(new ProtocolInjector.PacketTitle(ProtocolInjector.PacketTitle.Action.TITLE,
+				serializedTitle));
+		connection.sendPacket(new ProtocolInjector.PacketTitle(ProtocolInjector.PacketTitle.Action.SUBTITLE,
+				serializedSubTitle));
 	}
 
 	/**
@@ -64,14 +64,16 @@ public class MessageManager {
 	 * @param footer
 	 */
 	public static void sendTabTitle(Player player, String header, String footer) {
+		if (!GameAPI.is1_8(player))
+			return;
 		CraftPlayer craftPlayer = (CraftPlayer) player;
-		if(!GameAPI.is1_8(player)) return;
+
 		PlayerConnection connection = craftPlayer.getHandle().playerConnection;
 
-		IChatBaseComponent header2 = ChatSerializer.a(new StringBuilder().append("{'text': '")
-				.append(header).append("'}").toString());
-		IChatBaseComponent footer2 = ChatSerializer.a(new StringBuilder().append("{'text': '")
-				.append(footer).append("'}").toString());
+		IChatBaseComponent header2 = ChatSerializer.a(new StringBuilder().append("{'text': '").append(header)
+				.append("'}").toString());
+		IChatBaseComponent footer2 = ChatSerializer.a(new StringBuilder().append("{'text': '").append(footer)
+				.append("'}").toString());
 		connection.sendPacket(new ProtocolInjector.PacketTabHeader(header2, footer2));
 	}
 
