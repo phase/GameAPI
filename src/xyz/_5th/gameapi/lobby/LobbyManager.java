@@ -88,6 +88,9 @@ public class LobbyManager implements Listener {
 		p.openInventory(i);
 	}
 	
+	/**
+	 * Used for Wool color determined by how many players are in Lobby
+	 */
 	private static byte getData(int p){
 		if(p == 0)
 			return 10;
@@ -104,7 +107,7 @@ public class LobbyManager implements Listener {
 	@EventHandler
 	public void watchClick(PlayerInteractEvent e){
 		Player p = e.getPlayer();
-		if(p.getItemInHand().getType().equals(Material.WATCH))
+		if(p.getItemInHand().getType().equals(Material.WATCH) && p.getLocation().getWorld().getName().equalsIgnoreCase("world"))
 			openInventory(p);
 	}
 	

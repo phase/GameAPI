@@ -31,29 +31,30 @@ public class Arena {
 	int id;
 	GameRunnable gameRunnable;
 	ArrayList<Integer> countdowns;
+	Location lobby;
 	
 	/**
-	 * Main Contructor for the Arena.
+	 * Main Constructor for the Arena.
 	 * @param id - Number for Arena
 	 * @param name - Name for Arena
-	 * @param desc - Dscription about Arena
+	 * @param desc - Description about Arena
 	 * @param preGameNotes - Notes for before the game, usually the same for all Arenas in one Game.
 	 * @param teams - Teams for Arena.
 	 * @param maps - Maps for Arena.
 	 * @param r - GameRunnable for Arena
 	 */
-	public Arena(int id, String name, String desc,
-			ArrayList<String> preGameNotes, ArrayList<Team> teams,
+	public Arena(int id, String name, String desc, ArrayList<Team> teams,
 			ArrayList<Map> maps, GameRunnable r) {
 		this.Teams = teams;
 		this.Maps = maps;
 		this.name = name;
 		this.desc = desc;
-		this.preGameNotes = preGameNotes;
+		this.preGameNotes = Game.getGame(this).getPreGameNotes();
 		this.gameState = ArenaState.PRE_GAME;
 		this.Players = new ArrayList<UUID>();
 		this.id = id;
 		this.gameRunnable = r;
+		this.lobby = Game.getGame(this).getLobby();
 		ArenaList.add(this);
 	}
 

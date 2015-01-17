@@ -3,6 +3,7 @@ package xyz._5th.gameapi.game;
 import java.util.ArrayList;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
@@ -11,13 +12,13 @@ import xyz._5th.gameapi.main.GameAPI;
 public class Game {
 
 	public static ArrayList<Game> GameList = new ArrayList<Game>();
-	ArrayList<Listener> Listeners;
 	String name;
 	String desc;
 	ArrayList<String> preGameNotes;
 	ArrayList<Arena> arenas;
 	boolean useTime;
 	int time;
+	Location lobby;
 
 	/**
 	 * Creates a game.
@@ -28,16 +29,16 @@ public class Game {
 	 * @param arenas - Arenas for Game
 	 * @param listeners - Listeners before Game
 	 */
-	public Game(String name, String desc, ArrayList<String> preGameNotes,
+	public Game(String name, String desc, Location lobby, ArrayList<String> preGameNotes,
 			ArrayList<Arena> arenas, ArrayList<Listener> listeners) {
 		this.name = name;
 		this.desc = desc;
 		this.preGameNotes = preGameNotes;
 		this.arenas = arenas;
-		this.Listeners = listeners;
 		this.useTime = true;
 		this.time = 10;
-		if (listeners != null)
+		this.lobby = lobby;
+		if (listeners != null && listeners.size() > 0)
 			for (Listener l : listeners)
 				Bukkit.getPluginManager().registerEvents(l,
 						GameAPI.getInstance());
@@ -178,5 +179,19 @@ public class Game {
 	
 	public static boolean gameEquals(Player p, String name){
 		return isInGame(p) && gameExist(name) && getGame(p).getName().equals(name);
+	}
+
+	/**
+	 * @return PreGameNotes
+	 */
+	public ArrayList<String> getPreGameNotes() {
+		return preGameNotes;
+	}
+	
+	/**
+	 * @return Lobby Locatino for Arenas
+	 */
+	public Location getLobby(){
+		return lobby;
 	}
 }
