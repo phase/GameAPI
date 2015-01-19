@@ -43,12 +43,12 @@ public class Arena {
 	 * @param maps - Maps for Arena.
 	 * @param r - GameRunnable for Arena
 	 */
-	public Arena(int id, String name, String desc, ArrayList<Team> teams,
+	public Arena(int id,ArrayList<Team> teams,
 			ArrayList<Map> maps, GameRunnable r) {
 		this.Teams = teams;
 		this.Maps = maps;
-		this.name = name;
-		this.desc = desc;
+		this.name = Game.getGame(this).getName();
+		this.desc = Game.getGame(this).getDesc();
 		this.preGameNotes = Game.getGame(this).getPreGameNotes();
 		this.gameState = ArenaState.PRE_GAME;
 		this.Players = new ArrayList<UUID>();
