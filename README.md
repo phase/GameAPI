@@ -1,7 +1,7 @@
 GameAPI
 =======
 
-Pretty amazing GameAPI that combines the OCTC &amp; Mineplex game system.
+This is a pretty amazing GameAPI that combines the OCTC &amp; Mineplex game system.
 
 I started it in July (2014) and uploaded it to GitHub in October (2014).
 
@@ -57,4 +57,4 @@ as.add(new Arena(1, "PaintBall", "Shoot your paintballs at everyone!", pre, ts, 
 Game game = new Game("PaintBall", "Shoot your paintballs at everyone!", pre, as, lis);
 
 ```
-Yes, that may seem confusing, but.... yeah, it's pretty weird... I'll find some way to make it better. Right now it just uses a bunch of ArrayLists.
+Yes, that may seem confusing, but.... yeah, it's pretty weird... I'll find some way to make it better. Right now it just uses a bunch of ArrayLists. This will be changed to something...
