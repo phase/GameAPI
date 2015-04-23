@@ -1,4 +1,4 @@
-package xyz._5th.gameapi.listener;
+package xyz.jadonfowler.gameapi.listener;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;
@@ -11,9 +11,9 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import xyz._5th.gameapi.main.GameAPI;
-import xyz._5th.gameapi.message.MessageManager;
-import xyz._5th.gameapi.message.Prefix;
+import xyz.jadonfowler.gameapi.GameAPI;
+import xyz.jadonfowler.gameapi.message.MessageManager;
+import xyz.jadonfowler.gameapi.message.Prefix;
 
 public class ChatCommand implements Listener{
 	

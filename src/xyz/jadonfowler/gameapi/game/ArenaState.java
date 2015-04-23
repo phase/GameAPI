@@ -1,4 +1,4 @@
-package xyz._5th.gameapi.game;
+package xyz.jadonfowler.gameapi.game;
 
 public enum ArenaState {
 	

@@ -1,4 +1,4 @@
-package xyz._5th.gameapi.game;
+package xyz.jadonfowler.gameapi.game;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
-import xyz._5th.gameapi.main.GameAPI;
+import xyz.jadonfowler.gameapi.GameAPI;
 
 public class Game {
 

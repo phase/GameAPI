@@ -1,4 +1,4 @@
-package xyz._5th.gameapi.message;
+package xyz.jadonfowler.gameapi.message;
 
 import org.bukkit.ChatColor;
 

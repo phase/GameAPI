@@ -1,4 +1,4 @@
-package xyz._5th.gameapi.listener;
+package xyz.jadonfowler.gameapi.listener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +18,10 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import xyz._5th.gameapi.game.Arena;
-import xyz._5th.gameapi.game.ArenaState;
-import xyz._5th.gameapi.game.Game;
-import xyz._5th.gameapi.main.GameAPI;
+import xyz.jadonfowler.gameapi.game.Arena;
+import xyz.jadonfowler.gameapi.game.ArenaState;
+import xyz.jadonfowler.gameapi.game.Game;
+import xyz.jadonfowler.gameapi.GameAPI;
 
 /**
  * Handles Game choosing in the Lobby/Hub.

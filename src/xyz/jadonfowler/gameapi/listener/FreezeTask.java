@@ -1,4 +1,4 @@
-package xyz._5th.gameapi.listener;
+package xyz.jadonfowler.gameapi.listener;
 
 import java.util.HashMap;
 import java.util.Map;

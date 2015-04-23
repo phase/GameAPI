@@ -1,4 +1,4 @@
-package xyz._5th.gameapi.main;
+package xyz.jadonfowler.gameapi;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,15 +19,15 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import xyz._5th.gameapi.game.Arena;
-import xyz._5th.gameapi.game.Game;
-import xyz._5th.gameapi.listener.ChatCommand;
-import xyz._5th.gameapi.listener.FreezeTask;
-import xyz._5th.gameapi.listener.GameChooser;
-import xyz._5th.gameapi.listener.HubCommand;
-import xyz._5th.gameapi.listener.LeaveListener;
-import xyz._5th.gameapi.listener.RespawnListener;
-import xyz._5th.gameapi.lobby.LobbyManager;
+import xyz.jadonfowler.gameapi.game.Arena;
+import xyz.jadonfowler.gameapi.game.Game;
+import xyz.jadonfowler.gameapi.listener.ChatCommand;
+import xyz.jadonfowler.gameapi.listener.FreezeTask;
+import xyz.jadonfowler.gameapi.listener.GameChooser;
+import xyz.jadonfowler.gameapi.listener.HubCommand;
+import xyz.jadonfowler.gameapi.listener.LeaveListener;
+import xyz.jadonfowler.gameapi.listener.RespawnListener;
+import xyz.jadonfowler.gameapi.lobby.LobbyManager;
 
 public class GameAPI extends JavaPlugin {
 

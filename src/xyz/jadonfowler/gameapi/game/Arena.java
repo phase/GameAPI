@@ -1,4 +1,4 @@
-package xyz._5th.gameapi.game;
+package xyz.jadonfowler.gameapi.game;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -10,10 +10,10 @@ import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-import xyz._5th.gameapi.lobby.LobbyManager;
-import xyz._5th.gameapi.main.GameAPI;
-import xyz._5th.gameapi.message.MessageManager;
-import xyz._5th.gameapi.message.Prefix;
+import xyz.jadonfowler.gameapi.lobby.LobbyManager;
+import xyz.jadonfowler.gameapi.main.GameAPI;
+import xyz.jadonfowler.gameapi.message.MessageManager;
+import xyz.jadonfowler.gameapi.message.Prefix;
 
 public class Arena {
 

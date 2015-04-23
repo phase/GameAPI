@@ -1,4 +1,4 @@
-package xyz._5th.gameapi.game;
+package xyz.jadonfowler.gameapi.game;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -6,8 +6,8 @@ import java.util.UUID;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
-import xyz._5th.gameapi.message.MessageManager;
-import xyz._5th.gameapi.message.Prefix;
+import xyz.jadonfowler.gameapi.message.MessageManager;
+import xyz.jadonfowler.gameapi.message.Prefix;
 
 public class Team {
 	

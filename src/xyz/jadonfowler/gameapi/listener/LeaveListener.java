@@ -1,12 +1,12 @@
-package xyz._5th.gameapi.listener;
+package xyz.jadonfowler.gameapi.listener;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import xyz._5th.gameapi.game.Arena;
-import xyz._5th.gameapi.game.Game;
+import xyz.jadonfowler.gameapi.game.Arena;
+import xyz.jadonfowler.gameapi.game.Game;
 /**
  * Checks if Player leaves
  * @author Phase

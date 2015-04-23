@@ -1,6 +1,6 @@
-package xyz._5th.gameapi.game;
+package xyz.jadonfowler.gameapi.game;
 
-import xyz._5th.gameapi.message.Prefix;
+import xyz.jadonfowler.gameapi.message.Prefix;
 
 class CountdownRunnable implements Runnable {
 

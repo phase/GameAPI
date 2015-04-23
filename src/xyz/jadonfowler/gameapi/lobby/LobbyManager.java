@@ -1,4 +1,4 @@
-package xyz._5th.gameapi.lobby;
+package xyz.jadonfowler.gameapi.lobby;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +18,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import xyz._5th.gameapi.main.GameAPI;
+import xyz.jadonfowler.gameapi.GameAPI;
 
 public class LobbyManager implements Listener {
 	
