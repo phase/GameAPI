@@ -1,10 +1,10 @@
 name: GameAPI
 version: 1.0
-main: xyz._5th.gameapi.main.GameAPI
-author: Phase(Phasesaber)
+main: xyz.jadonfowler.gameapi.main.GameAPI
+author: https://github.com/phase
 description: An API above all APIs.
 commands:
   hub:
     description: Teleports you back to the hub.
   game:
-    description: Games. :P
+    description: Spawns a mob to join a game
