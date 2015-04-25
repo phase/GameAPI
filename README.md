@@ -1,5 +1,4 @@
-GameAPI
-=======
+# GameAPI
 
 This is a pretty amazing GameAPI that combines the OCTC &amp; Mineplex game system.
 
@@ -10,22 +9,19 @@ Uses the Spigot API for some 1.8 stuff, like Titles and other Packets.
 Uses an Arena Object system like other Minigames, but has a Game Object system for each game. 
 
 ##Basic Use
-To join a game, you do /game [MobType] [GameName] , and this will spawn a mob with the name of the game, and when you right-click that mob, it opens up an inventory full of wool, each piece representing an Arena. The color of the wool depends on how many players on in that arena. Click the wool to join the game! (The Arenas are hard-coded into the you make, so no editing in the config. You could write a way to do that, but that would take a while. Wait, that's a pretty good idea. I should do that.)
+To join a game, do `/game [MobType] [GameName]`, this will spawn a mob with the name of the game. When you right-click that mob, it opens up an inventory full of wool, each piece representing an Arena. The color of the wool depends on how many players on in that arena. Click the wool to join the game! (The Arenas are hard-coded into the you make, so no editing in the config. You could write a way to do that, but that would take a while. Wait, that's a pretty good idea, I should do that.)
 
-Things you should know about
-----------------------------
+## Things you should know about when making Games
 - Listeners are registered in the Game constructor, meaning you don't have to register them.
 - Arenas have to have the same name & pre-game notes as the Game they're in, trying to find a way around it.
 - Maps are automatically loaded & unloaded, so you don't need to "block" block breaking.
 - If Team sizes are set to -1, infinite players will be able to join.
 - The GameRunnable will fire the start() at the beginning, stop() at the end, and win(Team t) at the end with the winner.
 
-Soon to come
-------------
+## Soon to come
 - Spectators
 
-Structure
----------
+## Structure
 The structure of a Game isn't that hard to comprehend.
 ```
 Game
