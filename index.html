@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>GameAPI by phase</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">GameAPI</h1>
+      <h2 class="project-tagline">A minigame API that combines the Overcast Network &amp; Mineplex game system.</h2>
+      <a href="https://github.com/phase/GameAPI" class="btn">View on GitHub</a>
+      <a href="https://github.com/phase/GameAPI/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/phase/GameAPI/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="gameapi" class="anchor" href="#gameapi" aria-hidden="true"><span class="octicon octicon-link"></span></a>GameAPI</h1>
+
+<p>This is a minigame API for Bukkit that combines the OCTC &amp; Mineplex game system.</p>
+
+<p>I started it in July (2014) and uploaded it to GitHub in October (2014).</p>
+
+<p>Uses the Spigot API for some 1.8 stuff, like Titles and other Packets.</p>
+
+<p>Uses an Arena Object system like other Minigames, but has a Game Object system for each game. </p>
+
+<h2>
+<a id="basic-use" class="anchor" href="#basic-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Use</h2>
+
+<p>To join a game, do <code>/game [MobType] [GameName]</code>, this will spawn a mob with the name of the game. When you right-click that mob, it opens up an inventory full of wool, each piece representing an Arena. The color of the wool depends on how many players on in that arena. Click the wool to join the game! (The Arenas are hard-coded into the you make, so no editing in the config. You could write a way to do that, but that would take a while. Wait, that's a pretty good idea, I should do that.)</p>
+
+<h2>
+<a id="things-you-should-know-about-when-making-games" class="anchor" href="#things-you-should-know-about-when-making-games" aria-hidden="true"><span class="octicon octicon-link"></span></a>Things you should know about when making Games</h2>
+
+<ul>
+<li>Listeners are registered in the Game constructor, meaning you don't have to register them.</li>
+<li>Arenas have to have the same name &amp; pre-game notes as the Game they're in, trying to find a way around it.</li>
+<li>Maps are automatically loaded &amp; unloaded, so you don't need to "block" block breaking.</li>
+<li>If Team sizes are set to -1, infinite players will be able to join.</li>
+<li>The GameRunnable will fire the start() at the beginning, stop() at the end, and win(Team t) at the end with the winner.</li>
+</ul>
+
+<h2>
+<a id="soon-to-come" class="anchor" href="#soon-to-come" aria-hidden="true"><span class="octicon octicon-link"></span></a>Soon to come</h2>
+
+<ul>
+<li>Spectators</li>
+</ul>
+
+<h2>
+<a id="structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h2>
+
+<p>The structure of a Game isn't that hard to comprehend.</p>
+
+<pre><code>Game
+- Arenas
+    - Maps
+    - Teams
+- Listeners
+</code></pre>
+
+<p>But the code implementation can be quite confusing.</p>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">ArrayList&lt;<span class="pl-smi">String</span>&gt;</span> pre <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">ArrayList&lt;<span class="pl-smi">String</span>&gt;</span>();
+<span class="pl-k">ArrayList&lt;<span class="pl-smi">Arena</span>&gt;</span> as <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">ArrayList&lt;<span class="pl-smi">Arena</span>&gt;</span>();
+<span class="pl-k">ArrayList&lt;<span class="pl-smi">Listener</span>&gt;</span> lis <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">ArrayList&lt;<span class="pl-smi">Listener</span>&gt;</span>();
+<span class="pl-k">ArrayList&lt;<span class="pl-smi">Team</span>&gt;</span> ts <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">ArrayList&lt;<span class="pl-smi">Team</span>&gt;</span>();
+<span class="pl-k">ArrayList&lt;<span class="pl-smi">Map</span>&gt;</span> maps <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">ArrayList&lt;<span class="pl-smi">Map</span>&gt;</span>();
+
+<span class="pl-smi">Team</span> p <span class="pl-k">=</span> <span class="pl-smi">Team</span><span class="pl-c1"><span class="pl-k">.</span>PLAYERS</span>(<span class="pl-k">-</span><span class="pl-c1">1</span>);
+lis<span class="pl-k">.</span>add(<span class="pl-k">new</span> <span class="pl-smi">PaintListener</span>());
+
+<span class="pl-k">HashMap&lt;<span class="pl-smi">Team</span>, <span class="pl-smi">Location</span>&gt;</span> spawns <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">HashMap&lt;<span class="pl-smi">Team</span>, <span class="pl-smi">Location</span>&gt;</span>();
+spawns<span class="pl-k">.</span>put(p, <span class="pl-k">new</span> <span class="pl-smi">Location</span>(<span class="pl-smi">Bukkit</span><span class="pl-k">.</span>getWorld(<span class="pl-s"><span class="pl-pds">"</span>testmap<span class="pl-pds">"</span></span>), <span class="pl-c1">0</span>, <span class="pl-c1">64</span>, <span class="pl-c1">0</span>));
+
+maps<span class="pl-k">.</span>add(<span class="pl-k">new</span> <span class="pl-smi">Map</span>(<span class="pl-s"><span class="pl-pds">"</span>TestMap<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>testmap<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Mojang<span class="pl-pds">"</span></span>, spawns));
+
+as<span class="pl-k">.</span>add(<span class="pl-k">new</span> <span class="pl-smi">Arena</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>PaintBall<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Shoot your paintballs at everyone!<span class="pl-pds">"</span></span>, pre, ts, maps, <span class="pl-k">new</span> <span class="pl-smi">GameRunnable</span>(){
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">start</span>(){}<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">stop</span>(){}<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">win</span>(<span class="pl-smi">Team</span> <span class="pl-v">team</span>){}}));
+
+<span class="pl-smi">Game</span> game <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Game</span>(<span class="pl-s"><span class="pl-pds">"</span>PaintBall<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Shoot your paintballs at everyone!<span class="pl-pds">"</span></span>, pre, as, lis);
+</pre></div>
+
+<p>Yes, that may seem confusing, but.... yeah, it's pretty weird... I'll find some way to make it better. Right now it just uses a bunch of ArrayLists. This will be changed to something...</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/phase/GameAPI">GameAPI</a> is maintained by <a href="https://github.com/phase">phase</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
