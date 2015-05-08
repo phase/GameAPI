@@ -19,11 +19,13 @@ public class Arena {
 
 	public static ArrayList<Arena> ArenaList = new ArrayList<Arena>();
 	ArrayList<UUID> Players;
+	ArrayList<UUID> Spectators;
 	ArrayList<Team> Teams;
 	ArrayList<Map> Maps;
 	
 	Map currentMap;
 	Team winner;
+	final Team SPECTATOR_TEAM = Team.SPECTATORS();
 	ArenaState gameState;
 	String name;
 	String desc;
@@ -84,6 +86,23 @@ public class Arena {
 				}
 			giveRandomTeam(p);
 			checkStart();
+		} else if (gameState.equals(ArenaState.IN_GAME)) {
+			Spectators.add(p.getUniqueId());
+			p.teleport(GameAPI.getGameLobby()); //TODO Change to Map Spawn
+			p.setHealth(20d);
+			p.setFoodLevel(20);
+			p.setFireTicks(0);
+			p.getInventory().clear();
+			p.getInventory().setArmorContents(null);
+			LobbyManager.changeLobby(p, -1 * id, false);
+			for (Player o : Bukkit.getOnlinePlayers())
+				if (!Spectators.contains(o.getUniqueId())) {
+					p.hidePlayer(o);
+					o.hidePlayer(p);
+				} else {
+					p.showPlayer(o);
+					o.showPlayer(p);
+				}
 		}
 	}
 
