@@ -11,7 +11,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import xyz.jadonfowler.gameapi.lobby.LobbyManager;
-import xyz.jadonfowler.gameapi.main.GameAPI;
+import xyz.jadonfowler.gameapi.GameAPI;
 import xyz.jadonfowler.gameapi.message.MessageManager;
 import xyz.jadonfowler.gameapi.message.Prefix;
 
@@ -103,6 +103,7 @@ public class Arena {
 					p.showPlayer(o);
 					o.showPlayer(p);
 				}
+			SPECTATOR_TEAM.addPlayer(p);
 		}
 	}
 
