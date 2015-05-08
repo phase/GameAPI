@@ -147,4 +147,11 @@ public class Team {
 		return new Team("Players", i, ChatColor.YELLOW);
 	}
 	
+	/**
+	 * Static method for Spectators
+	 * @return Spectators
+	 */
+	public static Team SPECTATORS(){
+		return new Team("Spectators", -1, ChatColor.WHITE);
+	}
 }
