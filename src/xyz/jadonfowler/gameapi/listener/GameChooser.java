@@ -18,10 +18,9 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import xyz.jadonfowler.gameapi.game.Arena;
-import xyz.jadonfowler.gameapi.game.ArenaState;
-import xyz.jadonfowler.gameapi.game.Game;
+import xyz.jadonfowler.gameapi.game.*;
 import xyz.jadonfowler.gameapi.GameAPI;
+import xyz.jadonfowler.message.*;
 
 /**
  * Handles Game choosing in the Lobby/Hub.
@@ -64,8 +63,9 @@ public class GameChooser implements Listener {
 					e.setCancelled(true);
 						int s = Integer.parseInt(ChatColor.stripColor(e.getCurrentItem().getItemMeta().getDisplayName().split(" ")[1]));
 						Arena a = Arena.getArena(s);
-						if(a.getState() == ArenaState.PRE_GAME)
-							a.addPlayer(p);
+						if(a.getState() == ArenaState.POST_GAME){
+							MessageManager.sendMessage(p, Prefix.INFO(), "That game is restarting!");
+						}else a.addPlayer(p);
 				}
 			}
 		}
@@ -73,7 +73,7 @@ public class GameChooser implements Listener {
 	
 	@SuppressWarnings("deprecation")
 	public static void openInventory(Player p, Game g) {
-		Inventory i = Bukkit.createInventory(null, getSize(g.getArenas().size()), GameAPI.getRandomColor()+"§l"+g.getName());
+		Inventory i = Bukkit.createInventory(null, getSize(g.getArenas().size()), GameAPI.getRandomColor()+"Â§l"+g.getName());
 		int c = 0;
 		for(Arena a : g.getArenas()){
 			byte color = getColor(a.getState());
@@ -82,9 +82,9 @@ public class GameChooser implements Listener {
 			woolMeta.setDisplayName(GameAPI.getRandomColor()+g.getName() + " " + a.getId());
 			List<String> s = new ArrayList<String>();
 			s.add(a.getState().getString());
-			s.add("§7Players: §d"+a.getPlayers().size());
+			s.add("Â§7Players: Â§d"+a.getPlayers().size());
 			if(a.getState() == ArenaState.IN_GAME)
-				s.add("§dMap: §e" + a.getCurrentMap().getName() + "§d by: §e" + a.getCurrentMap().getCreator());
+				s.add("Â§dMap: Â§e" + a.getCurrentMap().getName() + "Â§d by: Â§e" + a.getCurrentMap().getCreator());
 			woolMeta.setLore(s);
 			wool.setItemMeta(woolMeta);
 			i.setItem(c, wool);
