@@ -36,7 +36,7 @@ public class GameAPI extends JavaPlugin {
         p.registerEvents(new LeaveListener(), this);
         p.registerEvents(new LobbyManager(), this);
         Bukkit.getScheduler().scheduleSyncRepeatingTask(instance, new FreezeTask(), 0, 1);
-        f = new File("GameAPI/game/main/mobs.yml");
+        f = new File("plugins/GameAPI/game/main/mobs.yml");
         config = YamlConfiguration.loadConfiguration(f);
         getMobs();
     }
