@@ -84,7 +84,7 @@ public class GameAPI extends JavaPlugin {
 
     /**
      * Gets a random color
-     * 
+     *
      * @return Random ChatColor
      */
     public static ChatColor getRandomColor() {
@@ -118,7 +118,7 @@ public class GameAPI extends JavaPlugin {
 
     /**
      * Get Join Location
-     * 
+     *
      * @return Join Location
      */
     public static Location getJoinLocation() {
@@ -127,7 +127,7 @@ public class GameAPI extends JavaPlugin {
 
     /**
      * Get Spawn Location
-     * 
+     *
      * @return Spawn Location
      */
     public static Location getSpawnLocation() {
@@ -136,7 +136,7 @@ public class GameAPI extends JavaPlugin {
 
     /**
      * Gets a Player Name from a UUID, only does
-     * 
+     *
      * @param uuid
      * @return
      */

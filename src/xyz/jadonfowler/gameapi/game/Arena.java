@@ -64,7 +64,6 @@ public class Arena {
 	 * Adds a player to the Arena.
 	 * @param p - Player to add
 	 */
-	@SuppressWarnings("deprecation")
 	public void addPlayer(Player p) {
 		if (gameState.equals(ArenaState.PRE_GAME)) {
 			Players.add(p.getUniqueId());
